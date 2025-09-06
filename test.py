@@ -16,3 +16,6 @@ target = "In theLond0n Journal, of March, 1732, is a curiovs, and, of course, cr
 trailing = "\Corrections: "
 prompt = leading + target + trailing
 result = agent(prompt)
+print("Result: ")
+print("Prompt: " + prompt)
+print(result)
