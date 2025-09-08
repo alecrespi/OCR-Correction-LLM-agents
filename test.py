@@ -2,10 +2,12 @@ from transformers import pipeline
 agent = pipeline(
     "text2text-generation",
     model="google/flan-t5-small",
-    max_new_tokens=int(2e6),
+    max_new_tokens=int(2e10),
     temperature=0.1,
     do_sample=True,
-    use_cache=False,
+    use_cache=False
+    # cache_dir="/tmp/huggingface_cache",
+    # local_files_only=True  # Don't try to download
     # trust_remote_code=True  # Required for Phi-3
 )
 

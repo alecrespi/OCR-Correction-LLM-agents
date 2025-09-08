@@ -1,0 +1,76 @@
+START PROGRAM...
+Logging into HuggingFace Hub...
+Logged in!
+Inferred device: cuda
+Loading the agent: Gemma-ITALIAN-FAST
+Agent loaded! Eval: 
+Gemma3ForConditionalGeneration(
+  (model): Gemma3Model(
+    (vision_tower): SiglipVisionModel(
+      (vision_model): SiglipVisionTransformer(
+        (embeddings): SiglipVisionEmbeddings(
+          (patch_embedding): Conv2d(3, 1152, kernel_size=(14, 14), stride=(14, 14), padding=valid)
+          (position_embedding): Embedding(4096, 1152)
+        )
+        (encoder): SiglipEncoder(
+          (layers): ModuleList(
+            (0-26): 27 x SiglipEncoderLayer(
+              (layer_norm1): LayerNorm((1152,), eps=1e-06, elementwise_affine=True)
+              (self_attn): SiglipAttention(
+                (k_proj): Linear4bit(in_features=1152, out_features=1152, bias=True)
+                (v_proj): Linear4bit(in_features=1152, out_features=1152, bias=True)
+                (q_proj): Linear4bit(in_features=1152, out_features=1152, bias=True)
+                (out_proj): Linear4bit(in_features=1152, out_features=1152, bias=True)
+              )
+              (layer_norm2): LayerNorm((1152,), eps=1e-06, elementwise_affine=True)
+              (mlp): SiglipMLP(
+                (activation_fn): PytorchGELUTanh()
+                (fc1): Linear4bit(in_features=1152, out_features=4304, bias=True)
+                (fc2): Linear4bit(in_features=4304, out_features=1152, bias=True)
+              )
+            )
+          )
+        )
+        (post_layernorm): LayerNorm((1152,), eps=1e-06, elementwise_affine=True)
+      )
+    )
+    (multi_modal_projector): Gemma3MultiModalProjector(
+      (mm_soft_emb_norm): Gemma3RMSNorm((1152,), eps=1e-06)
+      (avg_pool): AvgPool2d(kernel_size=4, stride=4, padding=0)
+    )
+    (language_model): Gemma3TextModel(
+      (embed_tokens): Gemma3TextScaledWordEmbedding(262208, 2560, padding_idx=0)
+      (layers): ModuleList(
+        (0-33): 34 x Gemma3DecoderLayer(
+          (self_attn): Gemma3Attention(
+            (q_proj): Linear4bit(in_features=2560, out_features=2048, bias=False)
+            (k_proj): Linear4bit(in_features=2560, out_features=1024, bias=False)
+            (v_proj): Linear4bit(in_features=2560, out_features=1024, bias=False)
+            (o_proj): Linear4bit(in_features=2048, out_features=2560, bias=False)
+            (q_norm): Gemma3RMSNorm((256,), eps=1e-06)
+            (k_norm): Gemma3RMSNorm((256,), eps=1e-06)
+          )
+          (mlp): Gemma3MLP(
+            (gate_proj): Linear4bit(in_features=2560, out_features=10240, bias=False)
+            (up_proj): Linear4bit(in_features=2560, out_features=10240, bias=False)
+            (down_proj): Linear4bit(in_features=10240, out_features=2560, bias=False)
+            (act_fn): PytorchGELUTanh()
+          )
+          (input_layernorm): Gemma3RMSNorm((2560,), eps=1e-06)
+          (post_attention_layernorm): Gemma3RMSNorm((2560,), eps=1e-06)
+          (pre_feedforward_layernorm): Gemma3RMSNorm((2560,), eps=1e-06)
+          (post_feedforward_layernorm): Gemma3RMSNorm((2560,), eps=1e-06)
+        )
+      )
+      (norm): Gemma3RMSNorm((2560,), eps=1e-06)
+      (rotary_emb): Gemma3RotaryEmbedding()
+      (rotary_emb_local): Gemma3RotaryEmbedding()
+    )
+  )
+  (lm_head): Linear(in_features=2560, out_features=262208, bias=False)
+)
+Running inference on 7 samples, from 0 to 7, in batches of 4...
+Processing batch 1 / 2 ...
+Processing batch 2 / 2 ...
+Generated 7 results.
+Results saved to: /afs/cern.ch/user/a/acrespi/private/mnlp2-project/scripts/CORRECTIONS/IT/Gemma-ITALIAN-FAST/attempt.0.json
